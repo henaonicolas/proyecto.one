@@ -177,7 +177,7 @@ border-top: 1px solid #e0e0e0;
 }
 
 .panel-izquierda{
-    background-image: url("IMG_6005.jpeg");
+    background-image: url("../img/IMG_6005.jpeg");
     background-size: cover;
     background-position: center;
 }
