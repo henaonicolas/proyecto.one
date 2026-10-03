@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clientes - CepKit</title>
+<link rel="stylesheet" href="css/inicio.css">
+<link rel="stylesheet" href="css/clientes.css">
+</head>
+<body>
+
+<!-- Menú lateral navegable -->
+<nav class="menu">
+<div class="logo">
+<img src="images/logo.png" alt="Logo de CepKit">
+</div>
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="clientes.html" class="active">Clientes</a></li>
+<li><a href="productos.html">Productos</a></li>
+<li><a href="configuracion.html">Configuración</a></li>
+</ul>
+</nav>
+
+<!-- Contenedor principal de la derecha -->
+<div class="main-wrapper">
+
+<!-- Banner superior -->
+<header class="banner">
+<h1>Gestión de Clientes</h1>
+</header>
+
+<!-- Contenido principal -->
+<main class="content">
+
+<!-- Acciones y filtro -->
+<section class="actions-bar card">
+<input type="text" placeholder="Buscar cliente por nombre o teléfono..." class="search-input">
+<!-- Botón que abre la ventana emergente -->
+<button class="btn btn-primary" onclick="openModal()">+ Nuevo Cliente</button>
+</section>
+
+<!-- Tabla de Clientes -->
+<section class="card table-container">
+<h2>Lista de Clientes</h2>
+<table class="data-table">
+<thead>
+<tr>
+<th>ID</th>
+<th>Nombre</th>
+<th>Correo Electrónico</th>
+<th>Teléfono</th>
+<th>Estado</th>
+<th>Editar</th>
+<th>Eliminar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#001</td>
+<td>Carlos Gómez</td>
+<td>carlos.gomez@email.com</td>
+<td>+57 300 123 4567</td>
+<td><span class="badge badge-success">Activo</span></td>
+<td>
+<button class="btn-icon">✏️</button>
+</td>
+<td>
+<button class="btn-icon btn-danger">🗑️</button>
+</td>
+</tr>
+<tr>
+<td>#002</td>
+<td>María Rodríguez</td>
+<td>maria.r@email.com</td>
+<td>+57 311 987 6543</td>
+<td><span class="badge badge-success">Activo</span></td>
+<td>
+<button class="btn-icon">✏️</button>
+</td>
+<td>
+<button class="btn-icon btn-danger">🗑️</button>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+</main>
+
+<!-- Pie de página -->
+<footer>
+<p>&copy; 2026 CepKit. Todos los derechos reservados.</p>
+</footer>
+
+</div>
+
+<!-- VENTANA EMERGENTE (MODAL) PARA REGISTRAR CLIENTE -->
+<div id="modalCliente" class="modal">
+<div class="modal-content">
+<div class="modal-header">
+<h2>Registrar Nuevo Cliente</h2>
+<span class="close-btn" onclick="closeModal()">&times;</span>
+</div>
+
+<form id="formCliente" onsubmit="guardarCliente(event)">
+<div class="modal-body">
+<div class="form-group">
+<label for="nombre">Nombre Completo *</label>
+<input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
+</div>
+
+<div class="form-group">
+<label for="email">Correo Electrónico *</label>
+<input type="email" id="email" placeholder="ejemplo@correo.com" required>
+</div>
+
+<div class="form-group">
+<label for="telefono">Teléfono *</label>
+<input type="tel" id="telefono" placeholder="+57 300 000 0000" required>
+</div>
+
+<div class="form-group">
+<label for="estado">Estado</label>
+<select id="estado">
+<option value="Activo">Activo</option>
+<option value="Inactivo">Inactivo</option>
+</select>
+</div>
+</div>
+
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
+<button type="submit" class="btn btn-primary">Guardar Cliente</button>
+</div>
+</form>
+</div>
+</div>
+
+<!-- Script sencillo para interactuar con la ventana -->
+<script>
+function openModal() {
+document.getElementById('modalCliente').style.display = 'flex';
+}
+
+function closeModal() {
+document.getElementById('modalCliente').style.display = 'none';
+}
+
+// Cierra la ventana si se hace clic fuera del contenido
+window.onclick = function(event) {
+const modal = document.getElementById('modalCliente');
+if (event.target === modal) {
+closeModal();
+}
+}
+
+function guardarCliente(event) {
+event.preventDefault();
+alert('¡Cliente guardado exitosamente!');
+closeModal();
+document.getElementById('formCliente').reset();
+}
+</script>
+</body>
+</html>
+
+
+
